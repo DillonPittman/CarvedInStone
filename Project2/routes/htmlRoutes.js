@@ -31,7 +31,28 @@ module.exports = function(app) {
       });
     });
   });
-
+   // Register for a new account
+  app.get("/login", function(req, res) {
+    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+      res.render("login", {
+        example: dbExample
+      });
+    });
+  });
+  // unbale to login page
+  app.get("/error", function(req, res) {
+    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+      res.render("error", {
+      });
+    });
+  });
+    // unbale to recognize email address
+  app.get("/error2", function(req, res) {
+    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+      res.render("error2", {
+      });
+    });
+  });
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
