@@ -4,16 +4,22 @@
       <div class="col-8 offset-2">
 
         <h2>Welcome to our Forum!</h2>
+        <h4> Please login </h4>
+          
+        <form action="/controllers/authenticate-controller" method="POST">
 
-        <h3>Posts:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+        Email: <input type="text" name="email">
+        Password: <input type="password" name="password">
+
+        <input type="submit" value="Submit">
+        </form>
+
+        <h4> Don't have an account no worries...Sign up here! </h4>
+        <form action="/controllers/register-controller" method="POST">  First Name: <input type="text" name="name">  Email: <input type="text" name="email">Paswword: <input type="password" name="password">
+        <input type="submit" value="Submit">  
+        </form>
+
+
       </div>
     </div>
   </div>

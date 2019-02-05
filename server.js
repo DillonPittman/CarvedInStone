@@ -7,6 +7,32 @@ var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+
+var bodyParser = require('body-parser');
+var connection = require('./config');
+var app = express();
+
+var authenticateController = require('./controllers/authenticate-controller');
+var registerController = require('./controllers/register-controller');
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+    
+/* route to handle login and registration */
+app.post('/api/register', registerController.register);
+app.post('/api/authenticate', authenticateController.authenticate);
+
+console.log(authenticateController);
+app.post('/controllers/register-controller', registerController.register);
+app.post('/controllers/authenticate-controller', authenticateController.authenticate);
+app.listen(8012);
+
+
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
