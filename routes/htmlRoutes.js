@@ -11,9 +11,9 @@ module.exports = function(app) {
     });
   });
   // Load index page
-  app.get("/index", function(req, res) {
+  app.get("/post", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index", {
+      res.render("post", {
         msg: "Welcome!",
         examples: dbExamples
       });
