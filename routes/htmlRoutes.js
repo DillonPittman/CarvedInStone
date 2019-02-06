@@ -1,7 +1,5 @@
 var db = require("../models");
 
-
-
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
@@ -12,7 +10,7 @@ module.exports = function(app) {
       });
     });
   });
-      
+
   // Load index page
   app.get("/index", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
@@ -25,15 +23,19 @@ module.exports = function(app) {
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+    db.Example.findOne({ where: { id: req.params.id } }).then(function(
+      dbExample
+    ) {
       res.render("example", {
         example: dbExample
       });
     });
   });
-   // Register for a new account
+  // Register for a new account
   app.get("/login", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+    db.Example.findOne({ where: { id: req.params.id } }).then(function(
+      dbExample
+    ) {
       res.render("login", {
         example: dbExample
       });
@@ -41,16 +43,14 @@ module.exports = function(app) {
   });
   // unbale to login page
   app.get("/error", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("error", {
-      });
+    db.Example.findOne({ where: { id: req.params.id } }).then(function() {
+      res.render("error", {});
     });
   });
-    // unbale to recognize email address
+  // unbale to recognize email address
   app.get("/error2", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("error2", {
-      });
+    db.Example.findOne({ where: { id: req.params.id } }).then(function() {
+      res.render("error2", {});
     });
   });
   // Render 404 page for any unmatched routes
