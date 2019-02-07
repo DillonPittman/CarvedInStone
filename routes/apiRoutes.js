@@ -23,4 +23,10 @@ module.exports = function(app) {
       res.json(dbExample);
     });
   });
+  // Register new User
+  app.post("/api/users", function(req, res) {
+    db.User.create(req.body).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
 };

@@ -1,3 +1,5 @@
+var cryptr = require("cryptr");
+
 // Get references to page elements
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
@@ -26,6 +28,16 @@ var API = {
     return $.ajax({
       url: "api/examples/" + id,
       type: "DELETE"
+    });
+  },
+  saveUser: function(user) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "api/users",
+      data: JSON.stringify(user)
     });
   }
 };
@@ -94,6 +106,23 @@ var handleDeleteBtnClick = function() {
   });
 };
 
+//handleRegUser is called when registration form is submitted
+
+var handleRegUser = function() {
+  var user = {
+    name: $("#name").val().trim(),
+    email: $("#email").val().trim(),
+    password: cryptr.encrypt($("#password").val().trim())
+  };
+  API.saveUser(user).then(function() {
+    console.log("Registered User!");
+  });
+};
+
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+// Add event listener to user registration submit
+
+$("#submit-reg").on("click", handleRegUser);
