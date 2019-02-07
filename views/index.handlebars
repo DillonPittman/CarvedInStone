@@ -4,23 +4,27 @@
       <div class="col-8 offset-2">
    
         <h2>Enter a new Post</h2>
-        <form class="clearfix mb-4" action="POST">
+        <form class="clearfix mb-4">
           <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+            <label for="title">Title:</label>
+            <input type="text" id="title" class="form-control" aria-describedby="title" placeholder="Enter Title Here">
           </div>
           <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+            <label for="body">Body:</label>
+            <textarea class="form-control" id="body" aria-describedby="body" placeholder="Enter Body Text Here"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="category">Category:</label>
+            <input type="text" id="category" class="form-control" aria-describedby="category" placeholder="Enter Category Here">
           </div>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
           
                 <h3>Posts:</h3>
         <ul id="example-list" class="list-group">
-          {{#each examples}}
+          {{#each posts}}
           <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
+            <a href="example/{{this.id}}">{{this.title}}</a>
             <button class="btn btn-danger float-right delete">ｘ</button>
           </li>
           {{/each}}

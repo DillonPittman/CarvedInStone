@@ -8,18 +8,18 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     body: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
       len: [1]
     }
   });
   Reply.associate = function(models) {
-    Reply.belongsTo(models.user, {
+    Reply.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
     });
-    Reply.hasOne(models.Post, {
+    Reply.belongsTo(models.Post, {
       foreignKey: {
         allowNull: false
       }
