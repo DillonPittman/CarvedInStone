@@ -1,7 +1,9 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-
+var passport   = require('passport')
+var session    = require('express-session')
+var env        = require('dotenv').load()
 var db = require("./models");
 
 var app = express();
@@ -11,37 +13,16 @@ var bodyParser = require("body-parser");
 // var connection = require("./config.json");
 var app = express();
 
-var authenticateController = require("./controllers/authenticate-controller");
-var registerController = require("./controllers/register-controller");
 
-app.use(
-  bodyParser.urlencoded({
-    extended: true
-  })
-);
+//For BodyParser
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(
-  bodyParser.urlencoded({
-    extended: true
-  })
-);
 
-/* route to handle login and registration */
-app.post("/api/register", registerController.register);
-app.post("/api/authenticate", authenticateController.authenticate);
+// For Passport
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
 
-console.log(authenticateController);
-app.post("/controllers/register-controller", registerController.register);
-app.post(
-  "/controllers/authenticate-controller",
-  authenticateController.authenticate
-);
-app.listen(8012);
-
-// Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(express.static("public"));
 
 // Handlebars
 app.engine(
@@ -52,7 +33,26 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-// Routes
+//Models
+var models = require("./models");
+
+//Routes
+var authRoute = require('./routes/auth.js')(app,passport);
+
+//load passport strategies
+require('./config/passport/passport.js')(passport,models.user);
+
+
+////Sync Database
+//models.sequelize.sync().then(function(){
+//console.log('Nice! Database looks fine')
+//
+//}).catch(function(err){
+//console.log(err,"Something went wrong with the Database Update!")
+//});
+
+
+// Routes General
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
