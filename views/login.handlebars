@@ -6,12 +6,13 @@
                 <h2>Login</h2>
                 <h4> Please login </h4>
 
-                <form action="/controllers/authenticate-controller" method="POST">
 
-                    Email: <input type="text" name="email">
-                    Password: <input type="password" name="password">
-
-                    <input type="submit" value="Submit">
+                <form id="signin" name="signin" method="post" action="signin">
+                    <label for="email">Email Address</label>
+                    <input class="text" name="email" type="text" />
+                    <label for="password">Password</label>
+                    <input name="password" type="password" />
+                    <input class="btn" type="submit" value="Sign In" />
                 </form>
 
 
