@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Load index page
+  // Load starting login/sign-up page
   app.get("/", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
       res.render("load", {
@@ -11,7 +11,7 @@ module.exports = function(app) {
     });
   });
 
-  // Load index page
+  // Load posts page
   app.get("/index", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
       res.render("index", {
@@ -21,6 +21,16 @@ module.exports = function(app) {
     });
   });
 
+  // load author page
+  app.get("/author/:id", function(req, res) {
+    db.Example.findAll({ where: { id: req.params.id } }).then(function(
+      dbExample
+    ) {
+      res.render("example", {
+        example: dbExample
+      });
+    });
+  });
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function(
@@ -41,13 +51,13 @@ module.exports = function(app) {
       });
     });
   });
-  // unbale to login page
+  // unable to login page
   app.get("/error", function(req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function() {
       res.render("error", {});
     });
   });
-  // unbale to recognize email address
+  // unable to recognize email address
   app.get("/error2", function(req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function() {
       res.render("error2", {});

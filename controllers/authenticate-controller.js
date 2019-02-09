@@ -19,15 +19,15 @@ module.exports.authenticate = function(req, res) {
       if (results.length > 0) {
         decryptedString = cryptr.decrypt(results[0].password);
         if (password === decryptedString) {
-          res.redirect("http://localhost:3000/index");
+          res.redirect("/index");
           //res.json({
           //  status:true,
           //  message:"successfully authenticated"
         } else {
-          res.redirect("http://localhost:3000/error");
+          res.redirect("/error");
         }
       } else {
-        res.redirect("http://localhost:3000/error2");
+        res.redirect("/error2");
       }
     }
   });

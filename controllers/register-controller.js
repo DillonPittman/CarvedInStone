@@ -20,7 +20,7 @@ module.exports.register=function(req,res){
             message:'there are some error with query'
         })
       }else{
-          res.redirect('http://localhost:3000/login')
+          res.redirect('/login')
       }
     });
 }
