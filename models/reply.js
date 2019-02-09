@@ -14,11 +14,11 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   Reply.associate = function(models) {
-    // Reply.belongsTo(models.User, {
-    //   foreignKey: {
-    //     allowNull: false
-    //   }
-    // });
+    Reply.belongsTo(models.user, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
     Reply.belongsTo(models.Post, {
       foreignKey: {
         allowNull: false

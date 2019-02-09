@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     category: {
       type: DataTypes.STRING,
-    //   allowNull: false,
+      allowNull: false,
       validate: {
         len: [1]
       }
@@ -22,11 +22,11 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Post.associate = function(models) {
-    // Post.belongsTo(models.User, {
-    //   foreignKey: {
-    //     allowNull: false
-    //   }
-    // });
+    Post.belongsTo(models.user, {
+      foreignKey: {
+        userId: 1
+      }
+    });
     Post.hasMany(models.Reply, {
       onDelete: "cascade"
     });
