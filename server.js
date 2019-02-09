@@ -1,6 +1,7 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
+var passport = require("passport");
 
 var db = require("./models");
 
@@ -11,8 +12,8 @@ var bodyParser = require("body-parser");
 // var connection = require("./config.json");
 var app = express();
 
-var authenticateController = require("./controllers/authenticate-controller");
-var registerController = require("./controllers/register-controller");
+// var authenticateController = require("./controllers/authenticate-controller");
+// var registerController = require("./controllers/register-controller");
 
 app.use(
   bodyParser.urlencoded({
@@ -28,14 +29,14 @@ app.use(
 
 /* route to handle login and registration */
 // app.post("/api/register", registerController.register);
-app.post("/api/authenticate", authenticateController.authenticate);
+// app.post("/api/authenticate", authenticateController.authenticate);
 
-console.log(authenticateController);
+// console.log(authenticateController);
 // app.post("/controllers/register-controller", registerController.register);
-app.post(
-  "/controllers/authenticate-controller",
-  authenticateController.authenticate
-);
+// app.post(
+//   "/controllers/authenticate-controller",
+//   authenticateController.authenticate
+// );
 app.listen(8012);
 
 // Middleware
@@ -55,7 +56,7 @@ app.set("view engine", "handlebars");
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
-var authRoute = require("./app/routes/auth.js")(app, passport);
+var authRoute = require("./routes/auth.js")(app, passport);
 
 var syncOptions = { force: false };
 

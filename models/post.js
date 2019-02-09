@@ -22,9 +22,9 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Post.associate = function(models) {
-    Post.belongsTo(models.User, {
+    Post.belongsTo(models.user, {
       foreignKey: {
-        allowNull: false
+        allowNull: true
       }
     });
     Post.hasMany(models.Reply, {
