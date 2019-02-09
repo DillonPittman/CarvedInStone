@@ -12,8 +12,15 @@ module.exports = function(sequelize, Sequelize) {
 		last_login: {type: Sequelize.DATE},
         status: {type: Sequelize.ENUM('active','inactive'),defaultValue:'active' }
 
-});
+  });
+  User.associate = function(models) {
+    User.hasMany(models.Post, {
+      onDelete: "cascade"
+    });
+    User.hasMany(models.Reply, {
+      onDelete: "cascade"
+    });
+  };
 
-	return User;
-
-}
+  return User;
+};

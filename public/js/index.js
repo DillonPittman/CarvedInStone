@@ -12,19 +12,19 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
+      url: "api/posts",
       data: JSON.stringify(example)
     });
   },
   getExamples: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/posts",
       type: "GET"
     });
   },
   deleteExample: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/posts/" + id,
       type: "DELETE"
     });
   }
@@ -35,7 +35,7 @@ var refreshExamples = function() {
   API.getExamples().then(function(data) {
     var $examples = data.map(function(example) {
       var $a = $("<a>")
-        .text(example.text)
+        .text(example.title)
         .attr("href", "/example/" + example.id);
 
       var $li = $("<li>")
@@ -65,11 +65,11 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+    title: $exampleText.val().trim(),
+    body: $exampleDescription.val().trim()
   };
 
-  if (!(example.text && example.description)) {
+  if (!(example.title && example.body)) {
     alert("You must enter an example text and description!");
     return;
   }
