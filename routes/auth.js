@@ -19,11 +19,12 @@ module.exports = function (app, passport) {
 
     //    app.get('/logout', authController.logout);
 
-
     app.post('/signin', passport.authenticate('local-signin', {
         successRedirect: '/index',
-        failureRedirect: '/signin'
+        failureRedirect: '/error'
     }));
+
+
 
     //    app.get('/logout',authController.logout);
 
@@ -43,7 +44,7 @@ module.exports = function (app, passport) {
         if (req.isAuthenticated())
             return next();
 
-        res.redirect('/signin');
+        res.redirect('/index');
     }
 
 
