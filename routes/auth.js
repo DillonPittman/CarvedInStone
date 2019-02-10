@@ -17,15 +17,26 @@ module.exports = function (app, passport) {
     app.get('/dashboard', isLoggedIn, authController.dashboard);
 
 
-    app.get('/logout', authController.logout);
+    //    app.get('/logout', authController.logout);
 
 
     app.post('/signin', passport.authenticate('local-signin', {
         successRedirect: '/index',
         failureRedirect: '/signin'
     }));
-    
-    app.get('/logout',authController.logout);
+
+    //    app.get('/logout',authController.logout);
+
+    // route for user logout
+    app.get('/logout', (req, res) => {
+        if (req.session.user && req.cookies.user_sid) {
+            res.clearCookie('user_sid');
+            res.redirect('/');
+        } else {
+            res.redirect('/login');
+        }
+    });
+
 
 
     function isLoggedIn(req, res, next) {
