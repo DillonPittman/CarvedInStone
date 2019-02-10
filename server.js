@@ -10,10 +10,10 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 var bodyParser = require("body-parser");
-// var connection = require("./config.json");
+require('./config/config.json');
 var app = express();
 
-
+app.use(express.static(__dirname +'/public'));
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
