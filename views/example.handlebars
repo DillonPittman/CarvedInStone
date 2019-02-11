@@ -7,22 +7,30 @@
           <p>
             <strong>Post ID</strong>: {{example.id}}</p>
           <p>
-          <p>
-            <strong>Post Title</strong>: {{example.text}}</p>
-          <p>
-            <strong>Post Body</strong>: {{example.description}}</p>
+            <p>
+              <strong>Post Title</strong>: {{example.text}}</p>
+            <p>
+              <strong>Post Body</strong>: {{example.description}}</p>
             <a href="/">← Back To Home</a>
         </div>
       </div>
-      <div class="card mt-4">
-        <div class="card-body">
-          {{#each comments}}
-            <h5 class="card-title">{{this.id}}</h5>
-            <p>
-            <strong>Comment</strong>: {{this.comment}}</p>
-          {{/each}}
+      <h2>Enter a new Post</h2>
+      <div class="clearfix mb-4">
+        <div class="form-group">
+          <label for="comment">New Comment</label>
+          <textarea class="form-control" id="comment" aria-describedby="comment"
+            placeholder="Enter Comment Here"></textarea>
         </div>
+        <button id="commentSubmit" class="btn btn-primary float-right">Submit</button>
       </div>
+      <h3>Comments:</h3>
+      <ul id="comment-list" class="list-group">
+        {{#each comments}}
+        <li data-id="{{this.id}}" class="list-group-item">
+          <p>{{this.text}}</p>
+        </li>
+        {{/each}}
+      </ul>
     </div>
   </div>
 </div>
