@@ -68,7 +68,7 @@ var handleFormSubmit = function(event) {
     text: $exampleText.val().trim(),
     description: $exampleDescription.val().trim()
   };
-
+  // console.log("log check" + $exampleText);
   if (!(example.text && example.description)) {
     alert("You must enter an example text and description!");
     return;

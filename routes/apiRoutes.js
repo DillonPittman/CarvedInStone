@@ -15,6 +15,13 @@ module.exports = function(app) {
     });
   });
 
+  // Create a new comment???
+  // app.post("/api/comments", function(req, res) {
+  //   db.Comment.create(req.body).then(function(dbComment) {
+  //     res.json(dbComment);
+  //   });
+  // });
+
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {
     db.Example.destroy({ where: { id: req.params.id } }).then(function(

@@ -31,6 +31,16 @@ module.exports = function(app) {
       });
     });
   });
+  // Load all comments associated with a post by id??? Maybe this can be combined with the above route?
+  // app.get("exapmle/:id", function(req, res) {
+  //   db.Comment.findAll({ where: { id: req.params.id } }).then(function(
+  //     dbComment
+  //   ) {
+  //     res.render("comment", {
+  //       comment: dbComment
+  //     });
+  //   });
+  // });
   // Register for a new account
   app.get("/login", function(req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function(
@@ -41,13 +51,13 @@ module.exports = function(app) {
       });
     });
   });
-  // unbale to login page
+  // unable to login page
   app.get("/error", function(req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function() {
       res.render("error", {});
     });
   });
-  // unbale to recognize email address
+  // unable to recognize email address
   app.get("/error2", function(req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function() {
       res.render("error2", {});
