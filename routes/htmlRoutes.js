@@ -32,7 +32,7 @@ module.exports = function(app) {
     });
   });
   // Load all comments associated with a post by id??? Maybe this can be combined with the above route?
-  app.get("exapmle/:id", function(req, res) {
+  app.get("comment/:id", function(req, res) {
     db.Comment.findAll({ where: { id: req.params.id } }).then(function(
       dbComment
     ) {

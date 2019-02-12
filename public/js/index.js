@@ -36,7 +36,7 @@ var API = {
   },
   getComments: function() {
     return $.ajax({
-      url: "api/comments",
+      url: "api/comment",
       type: "GET"
     });
   },
@@ -126,6 +126,7 @@ var handleFormSubmit = function(event) {
 // Save the new comment to the db and refresh the list
 var handleCommentSubmit = function(event) {
   event.preventDefault();
+  console.log("handleCommentSubmit" + event);
 
   var example = {
     text: $comment.val().trim()

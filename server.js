@@ -13,10 +13,10 @@ var bodyParser = require("body-parser");
 require("./config/config.json");
 var app = express();
 
+app.use(express.static(__dirname + "/public"));
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static(__dirname + "/public"));
 
 // For Passport
 app.use(
