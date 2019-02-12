@@ -2,19 +2,20 @@ var exports = module.exports = {}
 
 
 exports.signup = function(req,res){
-
+    
 	res.render('signup'); 
 
 }
 
 exports.signin = function(req,res){
-
+    console.log("!!!!!!!!!!!!this is what i want")
+    console.log(req)
 	res.render('/signin'); 
 
 }
 
 exports.dashboard = function(req,res){
-
+    
 	res.render('/dashboard'); 
 
 }
