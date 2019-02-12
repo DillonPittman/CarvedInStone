@@ -1,33 +1,60 @@
 <div id="home">
+
+    {{!-- <div class="parallax-container">
+      <div class="parallax hundred"><img src="https://i.imgur.com/04BFoob.jpg"></div>
+    </div> --}}
+
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
-   
-        <h2>Enter a new Post</h2>
+
+        <h3>Create Something</h3>
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+            <label for="example-text">Title</label>
+            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" >
           </div>
           <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+            <label for="example-description">Tell your story</label>
+            <textarea class="form-control" id="example-description" aria-describedby="example-description" ></textarea>
           </div>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
-          
-        <h3>Posts:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+      </div>
     </div>
   </div>
+  
+    <div class="parallax-container">
+      
+      <div class="parallax"><img class="backgroundImg" src="https://static1.visitestonia.com/images/2890339/Estonian_forest_reasons_to_visit_Sven_Zacek.jpg"></div>
+    </div>
+ 
+  
+  <div class="container">
+    <div class="container"><h3>Posts</h3></div>
+    <div class="divider"></div>
+    <div class="container scroll">
+      {{#each examples}}
+      <div class="row postBox">
+        <a class="postHolder" href="example/{{this.id}}">
+          <div class="card blue-grey darken-1 postMaster">
+            <div class="card-content white-text">
+              <span class="card-title">{{this.text}}</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+
 </div>
 
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script src="/js/materialize.js"></script>
 <script src="/js/index.js"></script>

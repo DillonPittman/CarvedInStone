@@ -12,11 +12,12 @@ module.exports = function(app) {
 
   // get one example
   app.get("/api/examples/:id", function(req, res) {
-    db.Example.findOne({
-      id: req.params.id,
-      include:[db.Comments]
+    db.Example.findOne({where: {
+      id: req.params.id},
+      include: [db.Comments]
     }).then(function(dbExamples) {
       res.json(dbExamples);
+      
     });
   });
 
