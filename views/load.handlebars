@@ -1,28 +1,63 @@
-<div id="home">
-    <div class="container">
-        <div class="row">
-            <div class="col-8 offset-2">
-
-                <h2>Welcome to our Forum!</h2>
-                <h4> Please register </h4>
-
-                <form id="signup" name="signup" method="post" action="/signup">
-                    <label for="email">Email Address</label>
-                    <input class="text" name="email" type="email" />
-                    <label for="firstname">Firstname</label>
-                    <input name="firstname" type="text" />
-                    <label for="lastname">Lastname</label>
-                    <input name="lastname" type="text" />
-                    <label for="password">Password</label>
-                    <input name="password" type="password" />
-                    <input class="btn" type="submit" value="Sign Up" />
-                </form>
+{{!-- <header>Welcome to our Forum!</header> --}}
 
 
-            </div>
-        </div>
-    </div>
+<img class="backgroundImg" src="https://static1.visitestonia.com/images/2890339/Estonian_forest_reasons_to_visit_Sven_Zacek.jpg">
+<div class="container">
+    <section id="intro" class="wrapper">
+        <h1 class="header headerx name">Welcome to Carved In Stone</h1>
+
+        <div class="divider byline"></div>
+    </section>
 </div>
 
+
+<div class="container">
+    <section id="explosion" class="wrapper">
+        <h1 class="explosion-byline">Recent Posts</div></h3>
+        
+    </section>
+</div>
+
+<div class="container">
+    <section id="links" class="wrapper ">
+        
+        <div class="container links-byline">
+            
+                {{#each examples}}
+                <div class="row postBow">
+                    <a class="postHolder" href="example/{{this.id}}">
+                        <div class="card blue-grey darken-1 postHolder">
+                            <div class="card-content white-text">
+                                <span class="card-title">{{this.text}}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {{/each}}
+        
+        </div>
+        
+    </section>
+    
+</div>
+<img class ="logo toTop" src="https://cdn3.iconfinder.com/data/icons/sympletts-free-sampler/128/diamond-512.png">
+
+
+
+{{!-- <ul id="example-list" class="list-group">
+    {{#each examples}}
+    <li class="card" data-id="{{this.id}}" class="list-group-item">
+        <a href="example/{{this.id}}">{{this.text}}</a>
+        <button class="btn btn-danger float-right delete">ｘ</button>
+    </li>
+    {{/each}}
+</ul> --}}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script src="/js/materialize.js"></script>
 <script src="/js/index.js"></script>
+<link rel="stylesheet" href="/styles/parallax.css">
+<script src="/js/parallax.js"></script>

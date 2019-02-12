@@ -1,30 +1,46 @@
+<img src ="https://picjumbo.com/wp-content/uploads/white-marble-stone-background-texture-pattern_free_stock_photos_picjumbo_marble_free_stock_photos_picjumbo_com-2210x1473.jpg" class = "backgroundImg">
 <div class="container">
   <div class="row">
     <div class="col-8 offset-2">
       <div class="card mt-4">
         <div class="card-body">
-          <h5 id= "postHead" class="card-title">Example</h5>
-          <p id = "post-id" style = "display:none">
+          <h5 class="card-title">{{example.text}}</h5>
+          <p id="post-id" style="display:none">
             {{example.id}}</p>
-          <p>
-          <p>
-            <strong>Text</strong>: {{example.text}}</p>
-          <p>
-            <strong>Description:</strong> {{example.description}}</p>
-            <button class = "commentBtn" >comment</button>
-            <button class = "revealCommentBtn" >view all comments</button>
+
+          <div class="divider"></div>
+          <br><br>
+          <div class = "bodyText">{{example.description}}</div>
+          <br><br>
+          <div class="divider"></div>
+
+          <ul class="collapsible">
+            <li>
+              <div class="collapsible-header commentBtn">comment</div>
+              <div class="collapsible-body" id="postHead"></div>
+            </li>
+          </ul>
+          {{!-- <a class="commentBtn">comment</a> --}}
+          <br>
+          {{!-- <a class="revealCommentBtn">view all comments</a> --}}
 
 
-            <a href="/">← Back To Home</a>
+          <a href="/" class= "float-right">← Back To Home</a>
         </div>
-        
-        <ul id="example-list" class="list-group hidex">
 
-        </ul>
+
+      </div>
+      <div id="example-list" class="container">
+
       </div>
     </div>
   </div>
 </div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script src="/js/materialize.js"></script>
 <script src="/js/index.js"></script>
-<script src ="/js/comments.js"></script>
+<script src="/js/comments.js"></script>

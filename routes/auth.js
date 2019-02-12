@@ -34,7 +34,7 @@ module.exports = function (app, passport) {
             res.clearCookie('user_sid');
             res.redirect('/');
         } else {
-            res.redirect('/login');
+            res.redirect('/');
         }
     });
 
