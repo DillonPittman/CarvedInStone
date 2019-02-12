@@ -26,14 +26,20 @@ module.exports = function(app, passport) {
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
+    db.Example.findOne({ 
+      where: { 
+        id: req.params.id
+       } 
+      }).then(function(dbExample) {
+      console.log(dbExample);
       res.render("example", {
         example: dbExample
       });
     });
+
   });
+  
+
   // Register for a new account
   app.get("/login", function(req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function(
