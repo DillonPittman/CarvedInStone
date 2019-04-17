@@ -33,8 +33,12 @@ h3{
 }
 
 /* .navlinkx {
-  
+  position: relative;
+  bottom: 0%
 } */
+ul{
+  height: 100%;
+} 
 
   .navlinkx:hover{
   color:#7EA3CC;
